@@ -9,14 +9,14 @@ provider "azurerm" {
 # }
 
 ## this will not create new resource group
-data "azurerm_resource_group" "rg" {
-  name = "RG-BSTest"
-}
+#data "azurerm_resource_group" "rg" {
+#  name = "RG-BSTest"
+#}
 
 resource "azurerm_automation_account" "aac" {
   name                = "${var.prefix}-autoacc"
   location            = var.location
-  resource_group_name = data.azurerm_resource_group.rg.name
+  resource_group_name = var.rgname
 
   sku_name = "Basic"
 
